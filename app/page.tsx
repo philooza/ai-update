@@ -3,6 +3,8 @@ import { ArrowRight, BadgeCheck, Bot, Clock, FileText, Radar, Sparkles } from "l
 import { Button } from "@/components/ui/button";
 import { getUpdates } from "@/lib/updates";
 
+export const dynamic = "force-dynamic";
+
 const focusAreas = [
   "AI tools and agents",
   "Workflow implementations",

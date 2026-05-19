@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getUpdate, getUpdates } from "@/lib/updates";
 
+export const dynamic = "force-dynamic";
+
 export async function generateStaticParams() {
   const updates = await getUpdates();
   return updates.map((update) => ({ slug: update.slug }));
