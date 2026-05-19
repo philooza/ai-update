@@ -29,6 +29,8 @@ export default async function Home() {
             <span>curated log</span>
             <span>•</span>
             <span>summary + critique</span>
+            <span>•</span>
+            <Link href="/login" className="text-cyan-100 hover:text-cyan-50">Admin login</Link>
           </div>
         </nav>
 
