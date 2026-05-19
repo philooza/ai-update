@@ -28,10 +28,22 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
           <p className="mb-8 text-lg leading-8 text-white/72">{update.summary}</p>
 
           {update.sourceUrl ? (
-            <a href={update.sourceUrl} target="_blank" rel="noreferrer" className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-cyan-100 hover:bg-white/10">
-              Source <ExternalLink className="h-4 w-4" />
-            </a>
-          ) : null}
+            <section className="mb-8 rounded-2xl border border-cyan-200/20 bg-cyan-300/10 p-5">
+              <p className="mb-2 text-sm font-semibold text-cyan-100">Original source</p>
+              <a
+                href={update.sourceUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex break-all text-sm leading-6 text-cyan-100 underline decoration-cyan-100/40 underline-offset-4 hover:text-cyan-50"
+              >
+                {update.sourceUrl} <ExternalLink className="ml-2 mt-1 h-4 w-4 shrink-0" />
+              </a>
+            </section>
+          ) : (
+            <section className="mb-8 rounded-2xl border border-amber-200/20 bg-amber-300/10 p-5 text-sm text-amber-100">
+              Original source link missing — add one before relying on this review.
+            </section>
+          )}
 
           <Section title="Key points" items={update.keyPoints} />
           <Block title="Functionality" body={update.functionality} />

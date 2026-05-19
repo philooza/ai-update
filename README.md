@@ -6,8 +6,10 @@ A public running log for practical AI developments.
 
 User-provided articles, links, videos, and transcripts are turned into structured entries:
 
+- original source link on every review
 - key points
 - functionality extraction
+- implementation specifics and actionable instructions
 - critical review
 - follow-up/watchlist items
 
