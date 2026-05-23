@@ -15,6 +15,35 @@ export type Update = {
 
 const localUpdates: Update[] = [
   {
+    slug: "tufte-viz-skill-chart-critique",
+    title: "Tufte as an agent skill: chart taste becomes reusable procedure",
+    category: "AI agents",
+    date: "2026-05-22",
+    sourceUrl: "https://x.com/draparente/status/2057937428531568866",
+    summary:
+      "Angelica Parente shared a small but useful pattern: when Claude's charts were disappointing, she fed it Edward Tufte's The Visual Display of Quantitative Information and had it generate a Claude Code skill. The resulting tufte-viz skill turns visual-design judgment into a reusable workflow for designing, critiquing, and simplifying data visualizations.",
+    keyPoints: [
+      "Original source: https://x.com/draparente/status/2057937428531568866",
+      "Extracted material: the X post text, the linked GitHub Gist skill at https://gist.github.com/aparente/e48c353755958621b3c0004593105a90, and the quoted image of Edward R. Tufte's The Visual Display of Quantitative Information, Second Edition.",
+      "The Gist is a working SKILL.md named tufte-viz, with a description that triggers on designing charts, critiquing visualizations, reviewing dashboards, choosing visualization approaches, reducing chartjunk, and improving data-ink ratio.",
+      "The skill operationalizes Tufte concepts including data-ink ratio, chartjunk elimination, graphical integrity, lie factor, small multiples, data density, layering and separation, sparklines, and the question 'compared to what?'",
+      "For new visualizations, it asks the agent to clarify the comparison, key insight, and audience; select a chart approach; start minimal; and add only marks that earn their ink.",
+      "For critiques, it directs the agent to check scales and baselines, calculate lie factor where proportions look suspicious, identify decorative noise, evaluate removable ink, and propose concrete before/after changes.",
+      "This is a practical example of using skills for taste transfer: a domain book becomes a compact review rubric and execution checklist that can be invoked repeatedly inside coding/design work.",
+    ],
+    functionality:
+      "Implementation-specific recipe: (1) Create a skill folder such as tufte-viz/ with a SKILL.md file. (2) Put specific trigger language in YAML frontmatter: use when designing new data visualizations, improving existing charts, reviewing dashboards/reports, deciding between visualization approaches, reducing chartjunk, or improving data-ink ratio. (3) Keep the body procedural: first clarify data story, comparison, audience, and desired insight; then select chart type using rules of thumb such as small multiples for repeated comparisons, line charts for time series, tables/sparklines for dense values, and bars/tables instead of pies for part-to-whole. (4) Add a critique workflow: verify graphical integrity, baselines, scales, lie factor, 3D distortion, decorative elements, heavy grids, redundant labels, and color misuse. (5) Put longer Tufte notes in references/tufte-principles.md and references/analytical-design.md so the model loads them only when needed. (6) Add deterministic checks where possible: for generated chart code, inspect axis domains, baseline choices, units, data transforms, label text, color palette, and whether the chart includes source/context. (7) Test the skill against known bad charts and a no-skill baseline; success should mean simpler charts, fewer ornamental marks, clearer comparisons, and explicit rationale for what was removed.",
+    critique:
+      "This is more valuable than a generic 'make charts better' prompt because it packages an aesthetic and analytical standard as repeatable agent procedure. The strongest lesson is not only Tufte specifically; it is that books, internal style guides, legal playbooks, investment memos, or product-review rubrics can become executable skills with triggers, checklists, references, and validation gates. The limitation is that a short skill cannot fully encode Tufte's judgment: it can over-apply minimalism, miss accessibility needs, or treat data-ink as a universal objective when exploratory, explanatory, or persuasive contexts differ. It also needs examples and before/after tests to avoid becoming a list of slogans. Still, this is a clean demonstration of skills as reusable taste infrastructure: compact enough to trigger often, specific enough to change output quality, and extensible through reference files.",
+    nextSteps: [
+      "Build a local Hermes/Claude tufte-viz skill from the Gist, but add examples of before/after chart refactors and an accessibility section covering color-blind-safe palettes, contrast, and direct labels.",
+      "Create a companion chart-review checklist for generated dashboard PRs: scales, baselines, units, source labels, chart type, data-ink, color purpose, annotation clarity, and whether the comparison is explicit.",
+      "Article idea: 'Taste Is Becoming Agent Infrastructure' — use this Tufte example to explain how domain judgment can be packaged as reusable skills rather than repeated prompting.",
+      "Article idea: 'Your AI Chart Problem Is a Missing Review Rubric' — argue that model chart quality improves when agents are given critique procedures, not just style adjectives.",
+      "X framing: 'The underrated part of skills: you can turn a book or internal taste standard into a reusable agent checklist. Tufte → chart skill is the pattern; legal memo style, diligence rubrics, dashboard QA, and product teardown standards are next.'",
+    ],
+  },
+  {
     slug: "anthropic-skills-guide-progressive-disclosure",
     title: "Anthropic’s Skills guide: reusable workflows beat static PDFs",
     category: "AI agents",
