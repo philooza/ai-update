@@ -15,6 +15,36 @@ export type Update = {
 
 const localUpdates: Update[] = [
   {
+    slug: "hermes-agent-tips-power-user-commands-fact-check",
+    title: "Hermes power-user tips: useful habits, but several commands are not real Hermes CLI",
+    category: "AI agents",
+    date: "2026-05-23",
+    sourceUrl: "https://x.com/hermesagenttips/status/2058210280245453037",
+    summary:
+      "Hermes Agent Tips posted a beginner/power-user command list and a large infographic of supposed Hermes commands. The useful part is not the literal command list: several headline commands in the post and image do not exist in the installed Hermes CLI. The practical value is the workflow shape: inspect the project before acting, dry-run risky automation, verify auth/config, follow logs, keep reusable starter templates, and use profiles/skills/cron where Hermes actually supports them.",
+    keyPoints: [
+      "Original source: https://x.com/hermesagenttips/status/2058210280245453037",
+      "Extracted material: public X syndication text, X Search full-post summary, attached infographic image, and a local `hermes --help`/subcommand check against the installed Hermes CLI.",
+      "The post claims commands such as `hermes catalog --deep`, `hermes run <flow> --dry-run`, `hermes inspect <flow>`, `hermes auth whoami`, and `hermes logs --follow` are useful Hermes commands.",
+      "Fact check: in the installed Hermes CLI, `catalog`, `run`, and `inspect` are not top-level commands. `hermes auth whoami` is also not a listed auth subcommand; available auth subcommands are `add`, `list`, `remove`, `reset`, `status`, `logout`, and `spotify`.",
+      "Partially true: log following is real but the actual CLI form is `hermes logs -f`, not `hermes logs --follow`. `hermes logs` also supports `errors`, `gateway`, `--lines`, `--level`, `--session`, `--since`, and `--component`.",
+      "The attached infographic adds many apparent non-existent or unverified commands around `hermes install`, `hermes catalog`, `hermes flow export/import`, `hermes cache clean`, and `hermes sandbox`. These should be treated as conceptual tips or hallucinated/aspirational commands, not copy-paste instructions.",
+      "Real Hermes equivalents for useful parts: use `hermes doctor` for environment health, `hermes config` / `hermes config set` / `hermes config path` / `hermes config env-path` for config, `hermes skills` for reusable procedures, `hermes profile` for isolated agent instances, `hermes cron` for scheduled workflows, `hermes mcp` for MCP servers, and `hermes sessions` for history.",
+      "The best non-command advice in the post is to build starter templates for recurring agent types: research, debugging, content, and deployment. In real Hermes, that should usually become skills, skill bundles, project templates, profiles, or cron prompts rather than a vague prompt pasted each time.",
+    ],
+    functionality:
+      "Implementation-specific reading: do not adopt the infographic as a command reference. Instead, convert the useful intentions into real Hermes workflows. (1) Project mapping: use normal repo inspection plus Hermes tools and skills; for codebase surveys, use a codebase-inspection skill or commands like `pygount`, `tree`, and targeted file search rather than non-existent `hermes catalog --deep`. (2) Dry-runs: before destructive work, ask Hermes for a plan, run tests/builds, inspect `git diff`, and use explicit approval gates; for scheduled work, use `hermes cron run <id>` to trigger a job and then verify `hermes cron list`/session output. (3) Flow inspection: if the workflow is a cron job, inspect/edit it with `hermes cron list` and `hermes cron edit`; if it is a skill, inspect it with `hermes skills`; if it is an MCP integration, use `hermes mcp list` and `hermes mcp test <name>`. (4) Auth verification: use `hermes status --all`, `hermes doctor`, `hermes auth status <provider>`, `hermes auth list`, `hermes login --provider <provider>`, or provider-specific health checks instead of `hermes auth whoami`. (5) Logs: use `hermes logs -f`, `hermes logs gateway -n 100`, `hermes logs errors`, or filters like `--since 1h` and `--component cron`. (6) Starter templates: create actual `SKILL.md` files for repeatable research/debug/content/deploy workflows, and consider `hermes bundles` when a project should preload multiple skills. For stronger isolation, use `hermes profile create <name>` and profile-specific config/memory; for recurring monitoring, use `hermes cron create`. (7) Verification habit: for any tip post, run `hermes <command> --help` locally before trusting it, because Hermes is moving quickly and X infographics often mix real features, adjacent tools, and made-up CLI syntax.",
+    critique:
+      "What is actually useful: the post gets the operating philosophy right but the command surface wrong. The useful ideas are project inventory, safe rehearsal before execution, auth/config verification, log visibility, and packaging repeatable work into templates. Those are exactly the behaviors that make an agent setup maintainable. The weak point is that the post presents several commands as if they are real, and the steampunk infographic appears to be at least partly synthetic or aspirational: `catalog`, `run`, `inspect`, `install`, `flow export/import`, `cache clean`, and `sandbox` do not appear in the installed Hermes top-level CLI checked here. That makes it dangerous as a beginner guide because novices will copy commands that fail and may misunderstand what Hermes actually provides. The best way to use this source is as a checklist of desired capabilities, then map each capability to real Hermes primitives: skills for reusable procedure, profiles for isolation, cron for scheduled execution, MCP for tool integrations, doctor/status/auth for health checks, logs for debugging, and session_search/sessions for history.",
+    nextSteps: [
+      "Create a real Hermes quick-reference note that replaces each fake/uncertain command with the current CLI equivalent from `hermes --help`.",
+      "Build four practical ai-update/Hermes starter skills: research-source-review, systematic-debugging, content-review-publishing, and deployment-verification.",
+      "Add a rule for Hermes-related X tips: always fact-check command syntax locally with `hermes <command> --help` before logging as actionable advice.",
+      "Article idea: 'AI Tool Infographics Are Becoming Hallucination Vectors.' Use this as an example of a useful workflow idea packaged with inaccurate CLI commands.",
+      "X framing: 'Useful idea, bad command reference. The real takeaway is: inspect before acting, dry-run/plan risky work, verify auth, follow logs, and turn repeatable work into skills/profiles/cron jobs. But don’t copy the listed commands without checking `hermes --help`.'",
+    ],
+  },
+  {
     slug: "corey-ganim-hermes-multi-profile-gbrain-architecture",
     title: "Three Hermes agents on one VPS: role profiles, private GBrains, and shared company memory",
     category: "AI agents",
