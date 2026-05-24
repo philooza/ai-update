@@ -15,6 +15,37 @@ export type Update = {
 
 const localUpdates: Update[] = [
   {
+    slug: "hermes-agent-memory-guidebook",
+    title: "Hermes Agent memory: native notes, provider choices, and graph add-ons",
+    category: "AI agents",
+    date: "2026-05-23",
+    sourceUrl: "https://x.com/ksimback/status/2058262328496554021",
+    summary:
+      "Kevin Simback’s X Article is a practical map of Hermes Agent memory. The useful breakdown is a three-layer model: native always-visible memory plus searchable session history; optional official MemoryProvider systems for richer recall; and community add-ons such as GBrain or Mnemosyne when you need graph memory, local-first retrieval, or specialized agent coordination.",
+    keyPoints: [
+      "Original source: https://x.com/ksimback/status/2058262328496554021",
+      "Extracted material: X Article titled 'The Hermes Agent Memory Guidebook' plus the article’s linked Hermes Atlas context at hermesatlas.com.",
+      "Layer 1 is the default Hermes memory stack: compact markdown notes for durable always-visible facts about the user/system, plus a SQLite session database that can be searched on demand rather than injected into every prompt.",
+      "A key correction in the article: the native memory files are not automatically consolidated by code at 80%; the fill gauge and consolidation behavior are prompt/tool discipline, while hard caps force replace/remove if the agent tries to overfill memory.",
+      "Layer 2 is the official pluggable MemoryProvider slot. The article emphasizes that you pick one provider at a time, because competing memory-search tools and stores can confuse the agent and make behavior harder to reason about.",
+      "The official providers are framed by architectural tradeoff rather than hype: user modeling, fast setup, benchmark recall, local/air-gapped use, filesystem tiers, cheap managed memory, git-like context trees, or high-scale low-latency recall.",
+      "Layer 3 is the community layer. Some projects compete as MemoryProvider alternatives; others are additive side systems. GBrain is highlighted as a separate world-fact/knowledge-graph layer, while Mnemosyne is highlighted as a strong local tiered MemoryProvider alternative.",
+      "The practical warning signs are latency, higher API cost, contradictory recalls, context budget pressure, and no measurable improvement in work quality after a couple of weeks.",
+    ],
+    functionality:
+      "Implementation-specific takeaway for a Hermes setup: (1) Start with native memory discipline before adding infrastructure. Keep USER.md for stable user preferences and MEMORY.md for durable environment/project facts; do not save stale task progress, PR IDs, or temporary TODOs. (2) Use session_search for episodic recall: prior discussions, decisions, debugging trails, and completed task context that may matter later but should not be injected every turn. (3) Only add a Layer 2 provider when you have a clear failure mode: semantic recall is weak, many agents need shared memory, the native cap is blocking useful personalization, or you need structured profile extraction. (4) Choose one provider based on operating constraints: cloud vs local, latency budget, deletion/audit needs, graph needs, cost, and whether you want opinionated user modeling or factual recall. (5) Treat Layer 3 systems as add-ons for specific gaps: GBrain for people/companies/projects/world facts and markdown-vault knowledge graphs; Mnemosyne or similar for local temporal/tiered recall. (6) Add evaluation before adding memory: define 5–10 recurring questions the agent should answer better, record baseline answers with native memory only, enable the provider, then compare accuracy, citations, latency, cost, and whether the agent can explain what memory influenced its response. (7) Review memory regularly for pollution: duplicates, contradictions, outdated assumptions, sensitive facts, and entries that should be moved from always-visible memory into searchable notes or removed entirely.",
+    critique:
+      "This is a strong piece because it separates the memory stack into layers and calls out where third-party posts tend to conflate always-visible notes, session archives, MemoryProviders, skills, and external knowledge graphs. The most important product insight is that more memory is not automatically better: memory has latency, cost, context, privacy, and contradiction risks. The article is also useful because it treats provider choice as architecture, not leaderboard shopping. The caveat is that some provider descriptions are necessarily ecosystem/benchmark claims that should be verified against current Hermes docs, installed plugins, and the user’s own workload before changing a production setup. For Ed’s privacy-preserving preference, the default recommendation should remain conservative: maximize native memory discipline and searchable local sessions first; only add cloud memory when a specific need justifies externalizing agent context.",
+    nextSteps: [
+      "Create a Hermes memory audit checklist: what belongs in USER.md, what belongs in MEMORY.md, what belongs only in session_search, and what should never be stored.",
+      "Article idea: 'Agent Memory Is an Architecture Decision, Not a Feature Toggle.' Use the three-layer model to discuss cost, privacy, latency, recall quality, and deletion/audit obligations.",
+      "Article idea: 'The Memory Pollution Problem.' Cover contradictory recalls, self-ingestion, stale preferences, prompt-injection residue, and why memory needs review loops.",
+      "Build an evaluation harness before installing any Layer 2 provider: recurring questions, expected answers, allowed sources, latency/cost budget, and a weekly pass/fail score.",
+      "For this Hermes setup, keep using native memory plus session_search as the default and consider GBrain-style project/world-fact notes only when a dedicated project has enough recurring entities to justify the added layer.",
+      "X framing: 'The useful framing is 3 layers: always-visible native notes, searchable session archive/provider memory, and optional graph/world-fact systems. The mistake is treating memory as one bucket. The hard part is curation, not storage.'",
+    ],
+  },
+  {
     slug: "tufte-viz-skill-chart-critique",
     title: "Tufte as an agent skill: chart taste becomes reusable procedure",
     category: "AI agents",
