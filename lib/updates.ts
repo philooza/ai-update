@@ -15,6 +15,37 @@ export type Update = {
 
 const localUpdates: Update[] = [
   {
+    slug: "corey-ganim-hermes-multi-profile-gbrain-architecture",
+    title: "Three Hermes agents on one VPS: role profiles, private GBrains, and shared company memory",
+    category: "AI agents",
+    date: "2026-05-22",
+    sourceUrl: "https://x.com/coreyganim/status/2057912862169878718",
+    summary:
+      "Corey Ganim shared a concrete multi-agent Hermes architecture: one VPS runs a single Hermes install, three role-specific Hermes profiles, four GBrains, and cron-synced company context. The useful pattern is separation of responsibilities without losing shared business context: CFO, Ops, and Content/Marketing agents each get private working memory, while all three read a shared company knowledge brain fed by documents, calls, email, and calendar.",
+    keyPoints: [
+      "Original source: https://x.com/coreyganim/status/2057912862169878718",
+      "Extracted material: full X post text, attached architecture diagram, and author reply context surfaced by X Search. The post describes 4 separate GBrains: 1 shared company knowledge base and 3 private role-specific working memories.",
+      "The three Hermes profiles are CFO, Ops, and Marketing/Content. Each profile is treated as a specialist agent rather than a prompt preset inside one shared runtime.",
+      "Agent-to-brain mapping: CFO uses Finance Brain + Shared GBrain; Ops uses Ops Brain + Shared GBrain; Content/Marketing uses Content Brain + Shared GBrain.",
+      "Shared GBrain inputs: a context repo containing company docs, offers, brand voice, ICPs and team roles; Fathom/call transcripts synced every 2 hours; Gmail synced every 2 hours; and Google Calendar synced daily.",
+      "Each Hermes profile owns its own config, .env, SOUL.md, memory, logs, sessions, home directory, Telegram bot, and gateway process, while local wrapper scripts force requests to route into the correct private brain plus the shared brain.",
+      "The diagram labels the setup as: 'Hermes Setup: 1 VPS, 3 Profiles, 4 Brains'; top layer '1 VPS — Single Hermes Install'; profile boxes for CFO, Ops, and Content; private brain boxes for Finance, Ops, and Content; and one central 'Shared GBrain — Company Knowledge'.",
+      "Corey says the purpose is role separation: each agent stays specialized in a business function while the shared brain keeps all of them aligned on the same company context.",
+    ],
+    functionality:
+      "Implementation-specific recipe: (1) Provision one VPS and install Hermes once. Treat the VPS as the process host, not as one undifferentiated agent. (2) Create one Hermes profile per business role, e.g. cfo, ops, and content. Each profile should have isolated config, .env, SOUL.md/persona, memory files, logs, sessions, home directory, Telegram bot token, and gateway process/port. (3) Create four GBrain stores: shared-company plus finance, ops, and content. The shared store should contain relatively stable company context: docs, offers, brand voice, ICPs, product notes, team roles, policies, and source metadata. Private stores should contain role-specific working memory: finance metrics and assumptions for CFO; operational tasks, vendor/process notes, and personal-assistant context for Ops; content strategy, hooks, drafts, and audience patterns for Content. (4) Add wrapper scripts for each profile so a CFO request always loads/routes Finance Brain + Shared GBrain, Ops routes Ops Brain + Shared GBrain, and Content routes Content Brain + Shared GBrain. The wrapper should set the Hermes profile, GBrain identifiers, environment path, gateway URL/port, and bot token explicitly rather than relying on global defaults. (5) Feed the shared brain with scheduled sync jobs: pull markdown/docs from a context repo; import Fathom or meeting transcripts every 2 hours; ingest Gmail summaries/metadata every 2 hours; and ingest calendar events daily. Each sync should preserve source URL/ID, timestamp, and source type so the agent can cite and delete/update records later. (6) Keep ingestion least-privilege: use read-only Gmail/calendar scopes where possible, summarize before writing durable shared memory, and skip or quarantine prompt-injection-looking source content. (7) Run each profile/gateway as a separate service under systemd or a process manager; verify with health checks, logs, and a test message to each Telegram bot. (8) Add operating rules: shared brain is for company facts, not private role scratchpad; private brains are for role-specific judgments and temporary working context; promotion from private to shared should be intentional. (9) Test cross-agent consistency: ask all three agents the same company-background questions and role-specific questions, then confirm they share baseline facts but diverge appropriately on finance, ops, and content recommendations.",
+    critique:
+      "This is a strong practical architecture because it solves a real failure mode in agent setups: one giant agent memory tends to blur roles, while totally separate agents drift apart on company facts. The shared-plus-private brain split is the right mental model for business agents. The risk is operational complexity: three profiles means three bots, env files, gateways, logs, sync paths, auth scopes, and failure modes. The biggest design issue is governance, not plumbing. Gmail, calendar, calls, and company docs can contain privileged, confidential, or personal data, so shared memory needs deletion, auditability, source attribution, access boundaries, and prompt-injection filtering. There is also a subtle memory-pollution risk: if meeting transcripts or emails are blindly summarized into the shared brain, stale or low-confidence statements can become 'company knowledge.' The setup is worth it when the roles are actually used often and need different memory; otherwise a simpler single Hermes profile with explicit skills and source folders may be easier to operate.",
+    nextSteps: [
+      "Create a concrete profile template for this Hermes setup: directory layout, profile names, env var names, gateway ports, Telegram bot mapping, and GBrain IDs.",
+      "Build an ingestion policy before syncing Gmail/calendar/calls: read-only scopes, allowed labels/calendars, retention period, redaction rules, and a quarantine path for suspicious text.",
+      "Add a shared-vs-private memory promotion rule: private agents can propose durable company facts, but shared brain writes should require source citation and optionally human approval for sensitive categories.",
+      "Article idea: 'The Right Multi-Agent Pattern Is Shared Company Memory plus Private Role Memory.' Use Corey’s diagram as the practical example and focus on why role separation beats one giant context bucket.",
+      "Article idea: 'Your Agent Org Chart Needs an Information Architecture.' Cover profiles, memories, source routing, cron ingestion, least-privilege sync, and auditability.",
+      "X framing: 'The interesting part is not 3 agents; it is the memory topology: private role brains for specialization + shared company brain for alignment. That is the difference between a toy swarm and an operating system for business agents.'",
+    ],
+  },
+  {
     slug: "hermes-agent-memory-guidebook",
     title: "Hermes Agent memory: native notes, provider choices, and graph add-ons",
     category: "AI agents",
