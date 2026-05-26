@@ -1,0 +1,564 @@
+[0.1-5.1] Cloud Code can treat 300 files at once, the context window is just not big enough.
+[5.1-10.1] So I put it inside Notebook LEM where it treats everything, sites, every source,
+[10.1-12.1] and Cloud Code controls it from a terminal.
+[12.1-14.1] Let me show you how it works.
+[14.1-19.1] Here is the example of research which I did with Notebook LEM.
+[19.1-21.1] Very hard, 20 sources.
+[21.1-27.1] And here is the question which I asked about emerging themes across those 20 sources.
+[27.1-30.7] and here is the actual response from Notebook LM,
+[30.7-32.6] import the Torab Cigen Vault,
+[32.6-37.2] where you have exact citations from the videos.
+[37.2-40.4] Here is the example of the citation,
+[40.4-41.7] I can click on that,
+[41.7-46.7] and it guides me to exact passage from the video transcript.
+[47.8-50.2] Now our answers are grounded,
+[50.2-54.3] and here are all the citations from this video.
+[54.3-57.0] Now, and here I have sources referenced,
+[57.0-61.0] by the frequency of the citation.
+[61.0-64.5] And here is a quick diagram to explain what's going on.
+[64.5-67.2] We have a cloud code, which connects to a local M,
+[67.2-70.5] and it uploads those 20 videos there.
+[70.5-73.5] And then you can ask the questions about it,
+[73.5-74.9] wish or anything.
+[74.9-76.9] And then you get a response from not a local M
+[76.9-78.3] with the cited answers,
+[78.3-81.3] and we input those into our oxygen bowl.
+[81.3-84.0] Now, in this video, what we're gonna go through
+[84.0-88.2] is a research workflow from Cloud Code integrated
+[88.2-92.2] with Apcegen, how to get sources and citations
+[92.2-95.6] coming to Apcegen, how to do audio audio review
+[95.6-98.1] and podcast generation from the Cloud Code
+[98.1-99.3] and other use cases.
+[99.3-101.0] So let's get started.
+[101.0-103.4] First, what is non-book LEM?
+[103.4-106.0] Non-book LEM is a Google research tool
+[106.0-108.4] where you can upload a bunch of sources
+[108.4-112.1] and you have those notebooks with sources.
+[112.1-117.1] And here is the example, you have all of the sources,
+[117.3-119.7] which you can upload, you can add them,
+[119.7-122.7] you can chat with them, and you can generate artifacts
+[122.7-127.4] such as audio over you, mind maps, video over you.
+[127.4-132.4] And the key here is that we get those exact citations
+[133.4-138.4] from the videos or from any sources which we are uploading.
+[138.6-141.6] So our answers are grounded.
+[141.6-144.9] And this partially solves this issue where
+[144.9-149.9] LMs hallucinate the answers and making the research
+[150.3-153.9] with a quote, quote, more reliable.
+[153.9-157.4] Now here I integrated Cloud Code into this picture
+[157.4-160.8] and Cloud Code can interact with no Google M
+[160.8-163.9] through a common line interface.
+[163.9-168.9] And here is a GitHub project which enables this interaction
+[168.9-177.5] of the code code. We have a various commands which code code can do based on our non-book
+[177.5-186.4] lm notebooks and we're going to go through them what's possible. Here's a diagram that
+[186.4-194.5] code code can call this non-book lm CLI to interact with actual non-book lm. To ask questions,
+[194.5-196.3] to gather responses.
+[196.3-198.2] It can also upload the sources,
+[198.2-200.6] such as YouTube links, URLs, blog posts,
+[200.6-203.3] all like even your App Engine notes.
+[203.3-207.3] And the advantage here is of using it
+[207.3-210.5] with a code call through CLI is that
+[210.5-215.5] you can actually integrate it with your App Engine.
+[215.8-218.9] You can actually get those responses back
+[218.9-221.9] to your App Engine and work there.
+[221.9-224.4] So it becomes much, much more convenient
+[224.4-227.1] rather than using their web UI.
+[227.1-228.9] You can actually save responses,
+[228.9-231.4] you can ask questions,
+[231.4-234.9] and you can use those knowledge graph
+[234.9-239.9] to display connections between different sources.
+[240.5-242.8] All right, so let's try something.
+[242.8-247.8] We're gonna go and try to do a research topic.
+[247.9-250.5] I'm starting a code code inside my obsidian vault
+[250.5-253.5] and how this notebook lm skill,
+[253.5-255.3] which enables this programmatic interaction.
+[255.3-259.7] So code can actually learn how to use this tool,
+[259.7-261.1] which we introduced.
+[261.1-263.0] I'll just execute this skill.
+[263.0-266.3] And so let's say I want to research
+[266.3-271.2] about a code code and obsidian integration.
+[271.2-273.7] And I want to use my YouTube skill
+[273.7-277.6] to gather the links for the YouTube videos.
+[277.6-282.6] And then I want to pick, let's say, 10 videos to process.
+[283.8-286.8] And then we're gonna create the sources.
+[286.8-291.8] And then we can try to ask what are the gaps
+[292.2-294.6] in those videos, what are the opportunities
+[294.6-298.8] for exploring different ideas.
+[298.8-302.0] And the workload here is a house's custom skill
+[302.0-303.7] called YouTube Search.
+[303.7-308.7] it loads the skill and now it searches different videos
+[309.3-310.7] from the YouTube.
+[310.7-315.1] Here are all of the responses, all of the videos.
+[315.1-316.8] We just search a bunch of these.
+[318.2-319.8] That's very, very cool.
+[319.8-323.8] And then actually we're gonna create a new notebook.
+[323.8-326.5] So once you're ready, let's actually go back
+[326.5-329.8] to notebook.ham and confirm with cloth.
+[329.8-331.1] So what's going on?
+[331.1-335.6] Okay, here are some unique relevant videos.
+[335.6-337.7] Okay, I already love that.
+[337.7-338.8] Cool.
+[338.8-341.1] Okay, here are the pull of the results,
+[341.1-343.9] create at least of the most relevant videos.
+[343.9-348.9] Nice, nice sorted relevance and diversity perspective.
+[349.3-352.9] I got 20 videos, 20 videos.
+[352.9-356.0] Okay, that's actually sounds very cool.
+[356.0-361.0] let's try to add the create a new notebook,
+[361.0-366.0] a logbook, and then add 20 of those videos into there,
+[366.8-370.3] and ask the question about emerging ideas
+[370.3-373.1] or the gaps which are exist in the space.
+[373.1-377.1] Okay, great, and here we have the skill
+[377.1-381.2] which imports the sources.
+[381.2-383.4] So it teaches how to use this notebook
+[383.4-385.8] a LAM command line interface.
+[385.8-389.4] Code is going to create a notebook right now,
+[389.4-392.7] and that's a new notebook called CodeEx Obsidian Research.
+[392.7-396.7] Now, let's see, it adds the sources in parallel.
+[396.7-400.6] Okay, we have added the source, that's very cool.
+[400.6-403.5] And you can see already that they're appearing right here.
+[403.5-406.4] Add another six to 10 videos, nice.
+[406.4-410.4] There you go, more videos are coming.
+[410.4-411.4] That's cool.
+[411.4-414.1] And I really love this process because I can actually
+[414.1-416.3] pick the views and it's much better
+[416.3-420.4] than using this web search or faster search
+[420.4-424.0] because I have much more granular control over the sources.
+[424.0-427.2] And this way you can increase the signal to noise ratio
+[427.2-430.9] to a high, high value rather than you like
+[430.9-435.9] on the generic web search for adding a new sources.
+[436.0-438.1] Okay, so that's very cool.
+[438.1-442.4] And right now, Cloud Code creates for us a dashboard.
+[442.4-446.9] So we can actually look and see all of this information
+[446.9-449.3] in our App Engine vault.
+[449.3-451.1] And that's the most exciting part,
+[451.1-454.5] because I can actually interact with all of these sources
+[454.5-455.4] within my App Engine.
+[455.4-456.8] I can see them.
+[456.8-458.9] I can see connections between them.
+[458.9-463.5] And I can actually ask questions here from a terminal.
+[463.5-468.1] And Cloud Code will be able to export those answers
+[468.1-472.3] with sighted sources into our obsidian.
+[472.3-475.7] Let's wait. Let's wait a bit.
+[475.7-477.8] It's importing those sources.
+[477.8-479.8] This skill is available.
+[479.8-482.2] You can just grab a link in the description.
+[482.2-484.6] Okay, we have imported 20 sources,
+[484.6-487.0] and we want to create a dashboard right now,
+[487.0-490.3] where you can clearly see and track all of these sources,
+[490.3-495.8] because it's very, very hard to navigate this.
+[495.8-497.6] Here is our dashboard.
+[497.6-500.4] where you have all of these 20 videos,
+[500.4-505.4] and they can see their summary from the notebook column.
+[505.6-507.4] And right now here we have Q and A log,
+[507.4-510.6] where we can log the question Fisher asking,
+[510.6-514.4] and we're gonna log the response here as well.
+[514.4-516.7] And here we don't really need this.
+[516.7-519.1] All right, so it takes a bit of time
+[519.1-521.8] because the model is thinking.
+[522.8-524.4] It's not that Cloud Code is slow,
+[524.4-529.4] It's just the GMI model is take some time to execute.
+[529.7-533.4] And actually the response should appear here in the chat
+[533.4-535.1] after it runs.
+[535.1-537.7] Oh cool, I think it's done.
+[537.7-541.5] Okay, so we got the answer and all right.
+[541.5-546.3] So here is the actual response from the notebook alarm.
+[546.3-548.3] It's in our obsidian vault.
+[548.3-551.4] And meanwhile, I am asking Claude
+[551.4-554.9] to analyze if the citations make sense,
+[554.9-558.1] but we can just actually go through them
+[558.1-560.2] and see what's going on.
+[560.2-562.4] So here we are saying that
+[562.4-564.8] Claude automatically add yaml front matter,
+[564.8-567.6] give a text, move files into the folders,
+[567.6-570.2] and it references this video.
+[570.2-574.1] So let's actually see what's going on under the hood here.
+[574.1-578.2] And we see that, okay, we can mention,
+[578.2-580.4] it mentioned that we have like this nicely
+[580.4-585.4] from what it files, good, now there is another passage.
+[588.2-592.5] Yes, you can also do the tags, okay, it kind of makes sense.
+[592.5-597.3] You can also see here, tagging as well, overall it's,
+[597.3-600.2] it's quite good, yes, the sources make sense.
+[600.2-602.3] Let's try to do something else.
+[602.3-607.3] Here is to do list generator, okay, as a code can scan
+[607.3-614.0] to scan a vault to build a today to do list or daily briefing here is a video and oh okay
+[614.6-620.9] so that's um from the video from Teresa Torres that we are saying we are using this
+[620.9-628.4] today command and code goes going to Trello and getting the information from there
+[629.1-632.6] okay and generates to do list okay great that makes sense
+[632.6-638.6] Now let's try to see about something underexposed.
+[638.6-642.6] EI agents can edit, override, or print them to delete your files.
+[642.6-646.6] Here we're mentioning the crowd aberration or the vault.
+[646.6-648.6] Makes sense.
+[648.6-650.6] So then there is what is this.
+[650.6-652.6] Git version control.
+[652.6-656.6] So the I edit every Ia destruct.
+[656.6-658.6] So let's see what there.
+[658.6-661.6] Okay, so here, yes, we have mentioning of Git.
+[661.6-667.0] mentioning of Git that every action of cloud is automatically logged, right?
+[667.0-670.0] So overall, no, the references make sense.
+[670.0-675.9] So our actual response is grounded with the real data from the real videos.
+[675.9-677.9] Here is the response from cloud.
+[677.9-680.1] Oh, nice, nice, nice, nice.
+[680.1-689.6] I also run this citation accuracy audit, and here is rating, like, strong match, around 60%
+[689.6-696.6] partial much is 31% and weak much is like let's say 10 to 15%.
+[696.6-701.2] Now overall, it's quite, quite good, quite, quite good.
+[701.2-704.0] And it's quite strong grounding.
+[704.0-708.0] And now you can see this on a graph as well.
+[708.0-711.6] Here, all your sources side, you can go to each of them.
+[711.6-714.1] It has a file itself.
+[714.1-717.8] And you can actually integrate this with Appcion basis
+[717.8-722.2] because each source is a file.
+[722.2-723.9] We can ask a lot.
+[723.9-728.1] I want to build the Obsidian base for my notebook sources,
+[728.1-732.7] so I can display those and add relevant fields for this view.
+[732.7-737.4] Can you also check how we do those Obsidian bases?
+[737.4-739.8] And add this to our dashboard.
+[739.8-744.7] Also, we extract topics from the notebook column source,
+[744.7-747.2] and those are generated by a notebook column.
+[747.2-750.6] and you can actually see the emerging topics right here.
+[752.1-753.0] Okay, in meanwhile,
+[753.0-755.5] Cloud have just created for us,
+[755.5-759.3] for us this dashboard with all of our sources
+[759.3-762.3] and nice.
+[762.3-767.0] I wonder if you can add more properties displayed
+[767.0-768.8] in all sources, you,
+[768.8-773.1] and here are whole database of the sources,
+[773.1-775.1] which we have, we have topics,
+[775.1-779.0] We have type YouTube, we have status for those,
+[779.0-784.0] and you can see where this source was cited,
+[784.0-785.5] in which question.
+[785.5-790.0] Now, another opportunity is to look at the graph view,
+[790.0-792.0] to see the connections here.
+[792.0-795.5] Here is my resource file, which I put,
+[795.5-798.3] and I'm filtering by this file.
+[798.3-801.8] And I can see all of the different connections
+[801.8-803.5] across different sources.
+[803.5-808.0] Here is my main dashboard.
+[808.0-810.4] I'll note, and you can see it connects
+[810.4-814.1] to this source about Project Cornellos.
+[814.1-819.1] And this Project Cornellos is connected to other topics.
+[820.0-823.2] Now where it gets interesting when there are multiple,
+[823.2-825.5] like where there are similar topics.
+[825.5-829.0] For example, for this video, we have a Cloud Code.
+[829.0-832.0] And it connects to this node called Cloud Code.
+[832.0-835.3] and you can explore there what's going on.
+[835.3-838.7] And here it connects to other six videos
+[838.7-840.9] where we mentioned in Cloud Code.
+[840.9-843.1] Now you can explore this graph
+[843.1-847.4] and bring insights and new ideas and find the gaps.
+[847.4-851.2] Now this whole setup of CLISES scale
+[851.2-855.8] and weekly resolution I built all of this in my lab
+[855.8-858.5] and every week we pick a workflow
+[858.5-861.3] and build it from scratch and I share it.
+[861.3-864.9] And if you want to set up with on your vault or build something
+[864.9-868.3] that tailors your needs, here is the link.
+[868.3-870.2] I'm also running this workshop.
+[870.2-875.1] This is the zero to obsidian CLI pro in 90 minutes.
+[875.1-877.1] If you are interested in how to use obsidian CLI
+[877.1-880.3] and code code together, feel free to join.
+[880.3-883.2] OK, and let's take a step back about what
+[883.2-888.5] have just happened with all of these citations and nodes.
+[888.5-892.0] Essentially, what we did is, okay,
+[892.0-896.0] so we got results from YouTube,
+[896.0-898.2] we got five views added to our,
+[898.2-901.7] actually like 20 videos added to our non-buckle-end.
+[901.7-905.5] And then we asked from the terminal,
+[905.5-909.2] essentially Claude, quote, asked a question for us
+[909.2-912.9] about the gaps and the gap response back
+[912.9-916.4] with the citations, which makes sense into our absegan vote.
+[916.4-923.2] Now there is no need to copy, paste, no need to open like 20 tabs, 20 videos.
+[923.2-928.5] Cloud Code can search it for us and add them to a non-booklamp,
+[928.5-931.5] communicate, get results back to our obsidian.
+[931.5-933.4] That's truly, truly exciting.
+[933.4-937.0] Now, in this scales beyond just YouTube videos,
+[937.0-941.5] you can think about your vault notes, blog plus PDF,
+[941.5-945.2] like everything can live inside of one notebook.
+[945.2-952.3] You can just have example, okay, so I want you to add the article about code code and
+[952.3-963.0] notebook, about code code and Appcion, search online and add three articles and add some
+[963.0-967.2] markdown file from our Appcion base which is related to this.
+[967.2-972.7] Now, let's go back to the notebook column and in the sources we should see those appearing.
+[972.7-980.7] Right now we have like those videos and Glot is finding a new new sources for us.
+[980.7-988.6] So those one web search and those one with trying to find relevant files in our Obsidian
+[988.6-989.6] Vault.
+[989.6-994.3] They all just tell, okay, just use grep, okay, that's much faster.
+[994.3-995.3] Okay.
+[995.3-1000.9] We found the three articles from the web and we added my setup guide.
+[1000.9-1004.0] So, all right, and we are now adding in real-time
+[1004.0-1007.3] a new sources we should found in the web.
+[1007.3-1008.8] And those are real sources.
+[1009.7-1011.8] Those are actually real sources.
+[1011.8-1015.3] You can go there and go to the website
+[1015.3-1019.3] and it's real and exactly using code code with obsidian.
+[1019.3-1022.1] Nice, that's what you want.
+[1022.1-1023.3] Let me go back here.
+[1023.3-1026.2] We also added a code.md, right?
+[1026.2-1030.3] And added code code, obsidian course outline.
+[1030.3-1038.2] And now you can ask about those questions about new sources, and it's truly exciting.
+[1038.2-1045.9] So you can actually upload everything PDFs, papers, blog posts, all into non-book LAM,
+[1045.9-1049.6] and actually ask questions about them.
+[1049.6-1051.7] And non-book LAM is very, very flexible.
+[1051.7-1056.3] It supports up to 300 sources.
+[1056.3-1065.6] And today I just uploaded my daily notes, 300 daily notes, and here are all of them, and you
+[1065.6-1068.5] can chat with them just incredible.
+[1068.5-1073.0] You can extract different patterns, that's just one of the use cases you can think about.
+[1073.0-1079.1] Additionally, you can also configure a persona on how Notebook LAM can respond.
+[1079.1-1085.6] I want to configure a persona we should be just delivering concise responses and I want
+[1085.6-1092.7] you to test it just here in the chat. Just ask some question to test this first set persona.
+[1094.1-1098.9] Okay, cool. And now we're setting the persona and they were concise, direct responses. No
+[1098.9-1106.2] filler, no preamble. And we're asking for like three questions in parallel. We just set a context
+[1106.2-1113.8] for this chat for this notebook. And I believe that, okay, so let me get back to our previous
+[1113.8-1121.3] notebook. So that's the one. And here in the configured chat, we see that it's
+[1121.3-1128.1] appearing and it said response links to shorter. That's nice. And you can actually
+[1128.1-1134.1] see the answer is very, very concise. I love that. That's very cool. Very, very cool.
+[1134.1-1139.1] Now, if you want to add these questions back to our obsidian, I just want to
+[1139.1-1142.8] to import them and I want to see them in Q and A log.
+[1142.8-1146.7] Okay, so here we need to actually use a flag JSON
+[1146.7-1149.7] to get references with citation resolution.
+[1149.7-1151.8] We just like do it once again.
+[1151.8-1156.2] And we're going to get it here in our obsidian world synced.
+[1156.2-1159.4] Okay, we are now extracting the citations
+[1159.4-1162.2] from all of the questions.
+[1162.2-1164.0] We are resolving the citations
+[1164.0-1167.3] and right now we are seeing that they are appealing
+[1167.3-1171.2] in our Obsidian, all of those four questions.
+[1171.2-1173.7] And here is the concise answer.
+[1173.7-1174.9] It's very, very nice.
+[1174.9-1179.8] And this question was about the Resitorious Context Management.
+[1179.8-1184.8] And it makes sense that it pick up everything from her video.
+[1185.5-1186.7] Nice.
+[1186.7-1190.5] So the answer is keep going on the instructions short.
+[1190.5-1191.6] Uh-huh.
+[1191.6-1193.4] I do agree with that.
+[1193.4-1196.7] And here is the advice from her to keep it short.
+[1196.7-1201.2] call it goes into the context, every single time you chat with cloud.
+[1201.2-1202.2] Makes sense.
+[1202.2-1203.8] So it works perfectly.
+[1203.8-1214.3] Now moving on, so for the citations, just a diagram right here is that we have those answers
+[1214.3-1221.0] and they are appearing in notebook column as here, those are the chunks.
+[1221.0-1225.8] And we can click here, we can actually click here, like 39, for example.
+[1225.8-1230.9] and you can go to this chunk and it shows us this video
+[1230.9-1233.3] and exact citation from the chunk.
+[1233.3-1235.6] And we just imported this into our obsidian
+[1235.6-1237.1] so we can work there.
+[1237.1-1239.5] And we use those wiki links with mapping
+[1239.5-1243.9] to the headers to cite exact passage.
+[1243.9-1247.3] So we can easily trace the claims,
+[1247.3-1250.9] which plot, which no book length makes
+[1250.9-1253.7] and get back to the source all the time.
+[1253.7-1254.9] And here is the difference.
+[1254.9-1258.2] Now, previously, when you open the browser, like drag files
+[1258.2-1261.0] or create the 20 tabs, go to YouTube,
+[1261.0-1263.5] find maybe the articles.
+[1263.5-1266.4] That's just not scalable and not reliable,
+[1266.4-1268.9] then just so tiring here is in dark with all of this
+[1270.4-1273.0] 100 tabs, which you'll never process.
+[1273.0-1275.5] And then you just like close everything
+[1275.5-1277.1] and you just forget about it.
+[1277.1-1278.8] So you'll lose citations.
+[1278.8-1281.1] Now, with that approach,
+[1281.1-1284.3] you pretty automatically add the sources.
+[1284.3-1286.4] you have a curated list of sources
+[1286.4-1288.1] and you can ask Claude to dig deeper,
+[1288.1-1291.1] maybe find a different one.
+[1291.1-1295.6] And now we are not using this black box from notebook LM
+[1295.6-1299.6] where we add sources using this fast research
+[1299.6-1300.4] or deep research,
+[1300.4-1303.0] we actually have more control over the prompts
+[1303.0-1307.4] or the sources which we adding to our obsidian.
+[1307.4-1310.3] And then we import this into our obsidian
+[1310.3-1313.5] and then we use the links in our vault
+[1313.5-1315.8] to back up our citations.
+[1315.8-1320.0] Now another exciting part is audio overview.
+[1320.0-1325.0] You can actually get the overview of the topic.
+[1326.4-1328.8] You can actually do a deep research about something
+[1328.8-1333.7] and then ask Claude to grab this audio
+[1333.7-1335.4] from the non-book alarm.
+[1335.4-1337.7] Here is the audio overview button,
+[1337.7-1339.1] but you don't have to click it.
+[1339.1-1343.1] Cloud can actually add it to our Obsidian Vault.
+[1343.1-1346.8] I want you to use,
+[1346.8-1351.5] I want you to generate the audio over you,
+[1351.5-1354.5] over this notebook which you're working with,
+[1354.5-1356.6] and focus on the gaps.
+[1356.6-1358.3] That's very nice.
+[1358.3-1361.3] Then add it to my Obsidian Vault as
+[1361.3-1365.7] a embedded audio file inside of the notebook.
+[1365.7-1373.7] Okay, right now, non-bookalam cloud just went about generating the audio and added the prompt
+[1373.7-1379.1] about focusing on the gaps and specifying format being deep dive.
+[1379.1-1385.6] Now, it takes a bit a long time, we could see that if you're fresh or non-bookalam,
+[1386.2-1390.9] oh yes, it right here. So right now, it's generating the audio overview.
+[1390.9-1397.5] you. And once it's done, cloth going to get it and put it into our obsidian vault. Well,
+[1397.5-1405.0] I've already done that. And actually here, here is a podcast which was generated. I can
+[1405.0-1412.3] actually go on my phone. And because I use obsidian sync, I can listen it from my phone.
+[1412.3-1419.4] All right. So here is the exact same podcast right here. I can just play it on my phone.
+[1419.4-1426.4] So I can listen podcast on the go which you can generate and how customized podcasts.
+[1426.4-1431.4] I mean, here is also like other stuff which I played with.
+[1431.4-1435.4] You can go much, much beyond that.
+[1435.4-1443.4] So one thing which I played is up to you can actually generate a mind maps from the notebook.
+[1443.4-1445.0] it is a obsidian catalyst.
+[1445.0-1449.5] You can actually generate a mind maps from the notebook
+[1449.5-1454.2] lamp, and that's exact mind map, which we got from there.
+[1454.2-1455.9] That's another use case.
+[1455.9-1459.2] You can also do a flashcards.
+[1459.2-1461.5] Like, essentially, what you have here,
+[1461.5-1466.0] you can do exactly the same and import it into your obsidian.
+[1466.0-1469.4] So let's just go there into here.
+[1469.4-1471.6] Here is the example of the flashcards.
+[1471.6-1474.6] There's 58 flashcards.
+[1474.6-1477.5] It's a silly topic.
+[1477.5-1481.8] But you can just, let's say, OK, what
+[1481.8-1483.8] is the primary goal of Project Memory?
+[1483.8-1485.7] You can just click there.
+[1485.7-1488.0] It's going to be resuming, right?
+[1488.0-1490.0] It's going to show the answer.
+[1490.0-1492.1] You can generate custom flashcards,
+[1492.1-1494.6] and import it to your obsidian to study.
+[1494.6-1496.4] That's the audio overview.
+[1496.4-1497.2] That's working.
+[1497.2-1501.2] You can also create a slide decks,
+[1501.2-1506.2] Wish I'm not a big fan of here, it doesn't look cool to me.
+[1509.4-1512.8] Because I can't edit this, but that's also opportunity
+[1512.8-1515.5] if you like that.
+[1515.5-1518.0] That's a diagram for podcasts.
+[1518.0-1520.7] You can just take your notes and generate audio,
+[1520.7-1523.5] empathy file which you put into your Obsidian World
+[1523.5-1526.2] and then on the phone you can access it.
+[1526.2-1528.8] You can do it through Obsidian desktop
+[1528.8-1530.9] or you can do it through mobile.
+[1530.9-1535.2] And here are some other cool use cases.
+[1535.2-1538.0] If you're academic, I think that's a huge opportunity
+[1538.0-1541.6] because you can tell Claude,
+[1541.6-1543.8] get me open a new top.
+[1543.8-1547.2] Okay, so what's new on archive regarding quantum computing
+[1547.2-1549.2] with Reidberg atom arrays?
+[1549.2-1552.9] So now Claude can actually search specific articles
+[1552.9-1555.0] about the topic of your research.
+[1555.0-1558.1] And you can actually feed bugs those into non-bookalam
+[1558.1-1559.7] and get a grounded citations
+[1559.7-1566.5] know that it's very important for academics that responses are not made up and you have full control
+[1566.5-1573.1] for full observability over what's going on. And here is the actual link to archive paper.
+[1573.7-1580.9] I can click there and go and just found this article and I can provide specific directions.
+[1580.9-1588.5] You know, maybe the articles are from, you know, from 2010, if I'm interested in more, you know,
+[1588.5-1593.0] foundational research about this brick atom race. All of that you can just import into
+[1593.0-1600.5] notebook. You can also do market research for feeding competitors blog posts, YouTube videos.
+[1601.3-1607.8] You can actually, like this one is a cuter one. I think you can just set up your company knowledge
+[1607.8-1616.1] base in notebook. I think it's a huge opportunity because you don't need this complex
+[1616.1-1618.3] rather infrastructure for that.
+[1618.3-1620.5] You can just put everything into a notebook column
+[1620.5-1623.0] and handles everything for you.
+[1623.0-1626.3] You can imagine that, okay, you have this onboarding procedure
+[1626.3-1628.1] and people have natural questions
+[1628.1-1630.7] and you can put the docs for your company
+[1630.7-1633.5] into notebook column this way.
+[1633.5-1636.6] And then when a new employee comes in,
+[1636.6-1638.3] they have a bunch of questions.
+[1638.3-1643.2] Then they can just actually ask those questions,
+[1643.2-1647.5] Like, from CloudQuad, from Nolukalam, for the basic one, right?
+[1647.5-1652.7] And then you don't have to spend time and attention of other people who need to,
+[1653.7-1655.6] let's say, like, answer those basic questions.
+[1656.1-1659.6] That's one of the opportunities I shared, Viki, for your company.
+[1660.3-1664.4] Another idea, okay, so you have this, like, podcast, right?
+[1664.9-1668.0] Like, like, speedman episodes, like, four hours.
+[1668.5-1672.6] You can get a bunch of this, you know, and maybe, you know,
+[1673.2-1676.2] research about what's going on in the field of AI recently.
+[1676.2-1680.5] If you're interested in that, here are all of the just use cases,
+[1680.5-1685.4] and it's all just scratching the surface of what's possible right now with this system.
+[1686.0-1690.4] Now, in this kind of closes this loop where, like, your nodes,
+[1690.4-1693.5] your sources go into a notebook column and then a knowledge
+[1693.5-1696.7] graphs come back to you, which you can explore in your epsilon.
+[1696.8-1700.9] And I believe that's the highest leverage where you have all the sources,
+[1700.9-1704.7] All of the citations connected, and previously the notebook
+[1704.7-1707.0] and all of those are just dropped in the browser,
+[1707.0-1709.4] right, you need to copy paste into somewhere
+[1709.4-1711.8] into like Google Keep, into like maybe Appcigen,
+[1711.8-1714.6] whatever system you use, and it's all scattered
+[1714.6-1717.6] and there is no consistency how you capture that.
+[1717.6-1720.6] Now you can actually have like consistent dashboard
+[1720.6-1725.3] for research topics you want to know, deliver,
+[1725.3-1728.1] and then what's even more exciting
+[1728.1-1730.0] because it's all your data now.
+[1730.0-1734.3] It's all sits in your computer as just a mark and file.
+[1734.3-1739.2] And you can tell code, okay, let's say I just like want to
+[1739.2-1743.2] like engage more, ask more about like all of the sources
+[1743.2-1744.6] which we have here.
+[1744.6-1749.1] Like it's all here, it's all like saved right here.
+[1749.1-1750.7] And I can go back to this video,
+[1750.7-1754.0] I can like ask more questions about this.
+[1754.0-1756.6] It's truly amazing what's possible right now.
+[1756.6-1758.8] And here is the full hoop.
+[1758.8-1761.4] And here how it works for me,
+[1761.4-1763.9] how I think in terms of dashboards,
+[1763.9-1768.5] how this like not called dashboard,
+[1768.5-1771.7] like this cloud except in research,
+[1771.7-1773.0] it's a type of a dashboard.
+[1773.0-1776.0] And I just put there all the information
+[1776.0-1777.6] so I can clearly see what's going on,
+[1777.6-1780.3] what are the sources, what are the Q and A.
+[1780.3-1784.8] And cloud can actually read this dashboard as well.
+[1784.8-1789.0] using a recent thing that used the Obsidian CLI.
+[1789.0-1790.8] Here's a demonstration.
+[1790.8-1792.5] Let's say, just one, two.
+[1792.5-1797.3] And let's start a new conversation to demonstrate this.
+[1797.3-1800.4] I want to read this dashboard.
+[1800.4-1802.4] I just want to get the front monitor.
+[1802.4-1803.4] Yeah.
+[1803.4-1804.3] Cool.
+[1804.3-1807.6] And present results as a table.
+[1807.6-1810.0] Present results as a table.
+[1810.0-1813.8] Now it's going to go and get the results of queries.
+[1813.8-1817.7] and right now the results would come back to us.
+[1817.7-1818.5] There you go.
+[1818.5-1821.8] Here we have like all of that.
+[1821.8-1823.5] Like all of that are Q&A.
+[1823.5-1826.0] And we can ask questions about this.
+[1826.0-1828.5] So the basis return empty,
+[1828.5-1830.0] I think it doesn't work with basis.
+[1830.0-1833.6] So I just, I can just translate this into data view
+[1833.6-1835.7] and it's going to work.
+[1835.7-1840.0] So this was a dashboard and we have those related source files
+[1840.0-1841.1] which I just showed.
+[1841.1-1843.2] And then we have those Q&A notes
+[1843.2-1846.6] which can be just seen all at once.
+[1846.6-1848.3] And then those source files,
+[1848.3-1851.4] they have those topics as the deculings,
+[1851.4-1854.6] like I just code code, second brain, that'll cost them.
+[1854.6-1857.3] And that's the graph view which I showed here.
+[1857.3-1860.5] Those are actually the dashboards which we see here,
+[1860.5-1863.0] and those are all of your videos.
+[1863.0-1864.7] We can add a new group here,
+[1866.1-1867.7] called no Google M source.
+[1869.6-1871.6] And right now it's in a red.
+[1871.6-1875.3] So we can clearly see and understand what's happening here.
+[1875.3-1880.2] We can also add new, yeah, we can also color the topics
+[1880.2-1882.2] in a different color.
+[1882.2-1883.4] I think it doesn't work that well,
+[1883.4-1886.1] but I'm sure that's possible to do.
+[1886.1-1888.6] Now you have this like nice colors graph
+[1888.6-1891.1] whereas the red points is your notebook,
+[1891.1-1893.4] a lamp sources, those are videos.
+[1893.4-1896.1] And you can imagine you can have like articles,
+[1896.1-1898.4] you know, different type of sources.
+[1898.4-1900.0] And those are your topics.
+[1900.0-1903.3] I'm not colored right now, but you can make them colored.
+[1903.3-1905.7] Cool, that's kind of the whole system.
+[1905.7-1907.2] And that's a beautiful graph.
+[1908.2-1910.6] Yeah, I think we're coming to the end
+[1910.6-1915.2] and that's the notebook LMPY project
+[1915.2-1916.8] and the code code skill.
+[1916.8-1919.9] So I built, so you can just grab a link
+[1919.9-1923.2] and the description and start today.
+[1923.2-1925.0] Yeah, and if you wanna go deeper,
+[1925.0-1927.1] I'm running the workshops this Wednesday,
+[1927.1-1929.3] where I build this in your vault.
+[1929.3-1932.4] Yeah, and that's been an integration of Cloud Code
+[1932.4-1934.6] and Obsidian and on the column.
+[1934.6-1936.8] And I also built the Cloud Code skill.
+[1936.8-1940.2] You can just go grab there in description.
+[1940.2-1943.7] And if you wanna go deeper, I'm running a workshop
+[1943.7-1948.7] where we explore the Obsidian CLI
+[1949.2-1951.3] and Cloud Code integration.
+[1951.3-1956.1] And here is a program you can join for free.
+[1956.1-1958.8] Yeah, and if it was useful, yeah, subscribe.
+[1958.8-1962.2] I'm shipping one of these every week.
+[1962.2-1966.2] So you can just grab a deep sticks
+[1966.2-1968.2] and adapt it to your workflow.
+[1968.2-1969.1] Very good.
+[1969.1-1970.6] And I'll see you in the next one.

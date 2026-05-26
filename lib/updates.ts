@@ -15,6 +15,36 @@ export type Update = {
 
 const localUpdates: Update[] = [
   {
+    slug: "claude-code-notebooklm-terminal-research-workflow",
+    title: "Claude Code + NotebookLM: terminal-controlled, citation-grounded research loops",
+    category: "AI agents",
+    date: "2026-05-27",
+    sourceUrl: "https://x.com/damidefi/status/2059231280269541772",
+    summary:
+      "Dami-Defi demos a workflow where Claude Code orchestrates source discovery and local note generation while NotebookLM handles large-corpus processing and citation-grounded answers. The useful pattern is not that Claude magically reads 300 files; it curates a source pack, asks NotebookLM questions through a CLI, then writes cited answers, source dashboards, Q&A logs, graph links, and generated artifacts back into an Obsidian vault.",
+    keyPoints: [
+      "Original source: https://x.com/damidefi/status/2059231280269541772",
+      "Extracted material: X post/oEmbed text, public X syndication metadata, local transcript from the embedded ~32:50 video, and notebooklm-py README/SKILL.md documentation.",
+      "Primary implementation project: https://github.com/teng-lin/notebooklm-py, an unofficial Python API and CLI for Google NotebookLM with agent skill support for Claude Code, Codex, and OpenClaw.",
+      "Core loop: Claude Code searches/selects sources, creates a NotebookLM notebook, adds YouTube/articles/PDFs/vault notes as sources, asks cross-source questions via the CLI, receives cited answers, and writes them back into Obsidian as Markdown.",
+      "The Obsidian layer includes source files, YAML/frontmatter, Q&A logs, citation links, source dashboards, topics/tags, and graph-view relationships between sources and concepts.",
+      "NotebookLM artifacts can also be generated and exported: audio overviews/podcasts, mind maps, flashcards, quizzes, video overviews, reports, data tables, infographics, and slide decks.",
+      "The demo reports a citation audit with roughly 60% strong matches, ~31% partial matches, and ~10–15% weak matches, so citations are useful but still need spot-checking before relying on important claims.",
+      "Security/privacy caveat: this depends on Google NotebookLM authentication and an unofficial API wrapper around undocumented Google RPCs, so private vault notes, client documents, or legal materials need explicit governance before upload.",
+    ],
+    functionality:
+      "Implementation-specific workflow: (1) Install the NotebookLM automation layer: `pip install \"notebooklm-py[browser]\"`, `playwright install chromium`, `notebooklm login`, then verify with `notebooklm auth check --test --json`. (2) Install the agent skill with `notebooklm skill install` or `npx skills add teng-lin/notebooklm-py` so Claude Code knows the CLI surface. (3) Start Claude Code from the Obsidian vault or target research workspace so outputs can be written as Markdown files. (4) Ask Claude to find/curate sources rather than blindly deep-searching: e.g. search YouTube for a topic, rank 10–20 videos by relevance/diversity, optionally add articles/PDFs/vault notes. (5) Create and select a NotebookLM notebook: `notebooklm create \"Claude Code Obsidian Research\"`; in automation prefer explicit notebook IDs over shared `notebooklm use` context. (6) Add sources: `notebooklm source add \"https://youtube.com/...\"`, `notebooklm source add ./paper.pdf`, or `notebooklm source add-research --prompt-file query.txt --mode deep` where appropriate. (7) Ask synthesis questions with JSON/citation output: `notebooklm ask --prompt-file question.txt --json`; import the answer into a Q&A log with question, answer, source IDs, citation text, and confidence/audit notes. (8) Resolve citations into Obsidian wiki links/headers so each claim can be clicked back to a source passage. (9) Build a dashboard showing source title, type, status, NotebookLM summary, extracted topics, citation frequency, and which Q&A entries used each source. (10) Use graph view/DataView/Bases to inspect source-topic connections, but treat graph quality as dependent on clean metadata. (11) Generate artifacts when useful: `notebooklm generate audio \"Deep-dive on gaps\" --wait`, `notebooklm download audio ./gap-review.mp3`, `notebooklm generate mind-map`, `notebooklm download flashcards --format markdown ./cards.md`. (12) Before publishing any conclusion, sample citations and mark strong/partial/weak; do not treat NotebookLM citation presence as proof of correctness.",
+    critique:
+      "This is a genuinely useful research architecture because it separates roles well: Claude is the orchestrator and file-system worker, NotebookLM is the source-grounded corpus reasoner, and Obsidian is the durable knowledge interface. It solves real pain: 20 tabs, manual transcript copying, one-off browser chats, and uncited agent summaries. The strongest insight is controlled source curation: you can decide exactly which videos/articles/PDFs/vault notes enter the notebook instead of accepting a generic deep-research corpus. The weak points are stability, privacy, and over-trust. `notebooklm-py` is unofficial and rides undocumented Google APIs; Google auth/cookies and service changes can break it. Uploading private vaults or client documents to NotebookLM may be unacceptable without a dedicated account, data policy, and source-classification rules. Citations are helpful but imperfect—the demo’s own audit leaves a meaningful weak/partial citation band. For ai-update, the pattern is worth testing on public sources first; for confidential legal/professional work, it needs explicit privacy boundaries before use.",
+    nextSteps: [
+      "Run a small public-source pilot: one X/video topic, 10–20 public sources, NotebookLM notebook, cited Q&A log, and an Obsidian/Markdown dashboard export.",
+      "Define a privacy/account boundary before connecting any personal vault or private docs: dedicated Google account, allowed source classes, forbidden source classes, retention/deletion plan, and manual approval for sensitive uploads.",
+      "Build a citation-audit rubric for ai-update reviews: sample at least 5 claims, label citations strong/partial/weak, and flag unsupported claims before publishing.",
+      "Article idea: ‘Claude Code Does Not Need to Read 300 Files If It Can Operate a Citation Notebook.’ Explain the orchestrator/notebook/vault architecture and the limits.",
+      "X framing: ‘The hype is Claude reads 300 files. The real workflow is better: Claude curates sources → NotebookLM grounds answers with citations → Obsidian stores the audit trail.’",
+    ],
+  },
+  {
     slug: "perplexity-bumblebee-developer-endpoint-supply-chain-scanner",
     title: "Perplexity Bumblebee: read-only supply-chain exposure scanning for developer laptops",
     category: "AI security",
